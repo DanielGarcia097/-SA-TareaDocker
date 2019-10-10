@@ -12,12 +12,12 @@ const response400 = {
   estado: '401',
   mensaje: 'ERROR',
   data: {
-    token: 'error'
+    ayuda: 'ERROR LA BASE DE DATOS NO SE HA CREADO ES POSIBLE QUE EL CONTENEDOR NO ESTÁ CORRIENDO, EJECUTE DOCKER-COMPOSE UP -D'
   }
 }
 
 /**
- * Método POST: /post/autorización - generación de nuevo token
+ * Método GET: /clientes - retorna el nombre del cliente
  */
 router.get('/clientes/', (req, res) => {
 
