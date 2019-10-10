@@ -1,0 +1,31 @@
+version: "2"
+services:
+    db:
+     image: mysql:5.7
+     ports:
+      - '3306:3306'
+     environment:
+       MYSQL_DATABASE: 'my-app-db'
+       MYSQL_USER: 'root'
+       MYSQL_PASSWORD: 'password'
+       MYSQL_ROOT_PASSWORD: 'password'
+     expose:
+      - "3306"
+     command: --init-file /home/db.sql
+     volumes:
+      - ./data:/var/lib/mysql
+      - ./query:/home
+
+    web:
+     build: ./app
+     command: 'node server.js'
+     volumes: 
+      - ./app:/home/node/app
+     ports:
+      - '5001:5001'
+     environment:
+      - DATABASE_HOST=db
+     depends_on:
+        - db 
+    
+     
