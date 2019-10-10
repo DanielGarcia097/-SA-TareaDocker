@@ -7,6 +7,6 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(routes)
 
-app.listen(5001, () => {
+app.listen(80, () => {
   console.log('Server listening on port 80')
 })

@@ -22,7 +22,7 @@ services:
      volumes: 
       - ./app:/home/node/app
      ports:
-      - '5001:5001'
+      - '80:80'
      environment:
       - DATABASE_HOST=db
      depends_on:
